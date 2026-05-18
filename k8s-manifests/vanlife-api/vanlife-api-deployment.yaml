@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vanlife-api
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: vanlife-api
+  template:
+    metadata:
+      labels:
+        app: vanlife-api
+    spec:
+      containers:
+        - name: vanlife-api
+          image: koceilabeast/vanlife-api:1.0
+          env:
+            - name: PORT
+              value: "3000"
+            - name: DB_HOST
+              value: "10.10.3.25"
+            - name: DB_PORT
+              value: "3306"
+            - name: DB_NAME
+              value: "vanlife_db"
+            - name: DB_USER
+              value: "vanlife_user"
+            - name: DB_PASSWORD
+              value: "vanlife_password"
+          ports:
+            - containerPort: 3000
