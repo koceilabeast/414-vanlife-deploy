@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: vanlife-frontend
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: vanlife-frontend
@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
         - name: vanlife-frontend
-          image: koceilabeast/vanlife-frontend:1.0
+          image: koceilabeast/vanlife-frontend:v2
           ports:
             - containerPort: 80
